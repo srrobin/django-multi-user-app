@@ -1,0 +1,46 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+
+ {% block content %}
+            <div class="col-3 ">
+                <div class="card mt-5">
+                    <div class="card-body ">
+                        <small> for <span class="dot two">.</span> past <strong>bg-dark </strong></small><br>
+                        <small> for <span class="dot three">.</span> past <strong> bg-info</strong><br></small>
+                        <small> for <span class="dot four">.</span> past <strong>bg-warning </strong></small><br>
+                        <small>for <span class="dot five">.</span> past <strong> bg-danger</strong></small><br>
+                        <small>for <span class="dot six">.</span> past <strong> bg-success</strong></small>
+
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-6 ">
+                <hgroup>
+                    <h5>create a new memory</h5>
+                    {% if error %}
+                    <p style="color:red;">{{ error }}</p>
+                    {% endif %}
+                </hgroup>
+
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <form  method="POST" action="{% url 'add' %}">{% csrf_token %}
+                            <div class="form-group">
+                                <textarea class="form-control" name="data"  rows="3"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <input class="form-control form-control-sm" name="color"  type="text" placeholder="past box bg-color ">
+                            </div>
+                            <button type="submit" id="sendlogin" class="btn btn-primary btn-sm">submit !! </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+
+
+ {% endblock %}
+

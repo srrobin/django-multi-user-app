@@ -1,0 +1,36 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+
+ {% block content %}
+
+            <div class="col-4 ">
+                <hgroup>
+                    <h3>Create A New Account</h3>
+                    {% if error %}
+                    <p style="color:red;">{{ error }}</p>
+                    {% endif %}
+                </hgroup>
+
+                <div class="card mt-5">
+                    <div class="card-body">
+                        <form  method="POST" action="{% url 'signup' %}">{% csrf_token %}
+                            <div class="form-group">
+                                <input type="text" class="form-control" name="username" placeholder="username">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="password" placeholder="password">
+                            </div>
+                            <div class="form-group">
+                                <input type="password" class="form-control" name="passwordagain" placeholder="password again">
+                            </div>
+                            <button type="submit" id="sendlogin" class="btn btn-primary">register !! </button>
+                            <p><a href="{% url 'login' %}">try logging in..</a></p>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+ {% endblock %}
+

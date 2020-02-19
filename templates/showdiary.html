@@ -1,0 +1,88 @@
+{% extends 'base/base.html' %}
+{% load static %}
+
+
+
+ {% block content %}
+
+            <div class="col-7 ">
+                 <h4>Your Memories</h4>
+                <br>
+
+                <a href="{% url 'add' %}" type="button" class="btn btn-sm btn-primary  mb-4">Add Memory</a>
+                <a href="{% url 'logout' %}" type="button" class="btn btn-sm btn-primary  mb-4">Logout !!</a>
+
+
+                {% for mems in m %}
+               <div class="card text-white {{ mems.color }} mb-3" >
+                  <div class="card-header">{{ mems.date }}</div>
+                  <div class="card-body">
+                    <p class="card-text">{{ mems.content }}</p>
+                  </div>
+                </div>
+                 {% endfor %}
+
+
+            </div>
+
+ {% endblock %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+    <title>Document</title>
+
+</head>
+
+<body>
+    <div class="container">
+        <h4>Your Memories</h4>
+        <br> <br>
+        <a class="waves-effect waves-light btn green" href="{% url 'add' %}">Add Memory</a>
+
+<br> <br> <br> <br>
+        {% for mems in m %}
+            <div class="blue-text">{{ mems.date }}</div>
+            <h5 class="red-text">{{ mems.content }}</h5>
+        {% endfor %}
+
+        <br> <br> <br>
+
+        <a class="waves-effect waves-light btn red" href="{% url 'logout' %}">Logout !!</a>
+
+</body>
+
+</html>
+<button type="button" class="btn btn-primary btn-lg btn-block">Block level button</button>
